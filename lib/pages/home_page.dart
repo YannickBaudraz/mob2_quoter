@@ -56,6 +56,10 @@ class _QuoteFlowView extends StatelessWidget with GetItMixin {
   Widget _buildSnapshot(BuildContext context, AsyncSnapshot<Quote> snapshot) {
     if (snapshot.hasData) {
       final Quote quote = snapshot.data!;
+
+      // We watch for any change in the quotes list by watching its length (workaround)
+      // ignore: unused_local_variable
+      final listChanged = watchOnly((FavoriteQuoteManager m) => m.quotes.length);
       final favoriteQuoteManager = FavoriteQuoteManager.instance;
 
       return Column(
