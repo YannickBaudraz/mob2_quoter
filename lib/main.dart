@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quoter/managers/favorite_quote_manager.dart';
 import 'package:quoter/managers/quote_flow_manager.dart';
 import 'package:quoter/pages/home_page.dart';
 
 void main() {
   QuoteFlowManager.register();
+  FavoriteQuoteManager.register();
   runApp(const QuoterApp());
 }
 
