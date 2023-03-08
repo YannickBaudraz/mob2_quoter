@@ -64,12 +64,19 @@ class _QuoteFlowView extends StatelessWidget with GetItMixin {
             QuoteView(quote),
             Padding(
               padding: const EdgeInsets.only(top: 16),
-              child: IconButton(
-                icon: const Icon(Icons.favorite),
-                iconSize: 48,
-                color: Colors.red,
-                onPressed: () => favoriteQuoteManager.add(quote),
-              ),
+              child: favoriteQuoteManager.contains(quote) ?
+                IconButton(
+                  icon: const Icon(Icons.favorite_outline),
+                  iconSize: 48,
+                  color: Colors.red,
+                  onPressed: () => favoriteQuoteManager.remove(quote),
+                ) :
+                IconButton(
+                  icon: const Icon(Icons.favorite),
+                  iconSize: 48,
+                  color: Colors.red,
+                  onPressed: () => favoriteQuoteManager.add(quote),
+                ),
             ),
           ],
         );

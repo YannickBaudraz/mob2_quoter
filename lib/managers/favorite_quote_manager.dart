@@ -10,6 +10,14 @@ class FavoriteQuoteManager {
     _quotes.add(quote);
   }
 
+  void remove(Quote quote) {
+    _quotes.remove(quote);
+  }
+  
+  bool contains(Quote quote) {
+    return _quotes.contains(quote);
+  }
+
   static void register() {
     GetIt.I.registerLazySingleton(() => FavoriteQuoteManager());
   }
